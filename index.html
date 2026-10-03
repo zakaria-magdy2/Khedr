@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عيد ميلاد سعيد يا ضحاضيحو 🎉</title>
+  
+  <!-- Google Fonts: Cairo & Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+  <!-- Floating Sparkle & Star Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- 🔒 DISCREET PASSCODE ENTRY OVERLAY -->
+  <div id="passcode-screen" class="passcode-overlay">
+    <div class="passcode-card glass-panel">
+      <div class="lock-icon">
+        <i class="fa-solid fa-gift"></i>
+      </div>
+      <h1 class="passcode-title">مفاجأة خاصة لـ ضحاضيحو 🎁</h1>
+      <p class="passcode-subtitle">أهلاً بيكي! اكتبي كلمة السر عشان تفتحي المفاجأة..</p>
+      
+      <form id="passcode-form" onsubmit="return false;">
+        <div class="input-wrapper">
+          <input type="text" id="passcode-input" placeholder="اكتبي كلمة السر..." autocomplete="off" autofocus />
+          <button type="submit" id="unlock-btn" class="glow-btn">
+            <span>دخول</span>
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </button>
+        </div>
+      </form>
+      
+      <p id="passcode-error" class="error-text hidden">
+        <i class="fa-solid fa-circle-exclamation"></i> كلمة السر غلط، جربي تاني! 🔐
+      </p>
+    </div>
+  </div>
+
+  <!-- MAIN APP CONTAINER -->
+  <div id="main-app" class="app-container hidden">
+    
+    <!-- HEADER & CLEAN MUSIC BUTTON -->
+    <header class="app-header glass-header">
+      <div class="header-brand">
+        <i class="fa-solid fa-cake-candles text-gold pulse"></i>
+        <span class="brand-text" id="custom-title-display">كل سنة وأنتِ طيبة يا ضحاضيحو 🎉</span>
+      </div>
+
+      <div class="header-actions">
+        <button id="music-toggle-btn" class="icon-btn pulse glow-music-btn" title="تشغيل / إيقاف الموسيقى">
+          <i class="fa-solid fa-compact-disc" id="music-icon"></i>
+        </button>
+        <audio id="bg-audio" loop preload="auto">
+          <source src="./assets/song.mp3" type="audio/mpeg">
+          <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112189.mp3" type="audio/mpeg">
+          <source src="https://cdn.pixabay.com/download/audio/2022/11/06/audio_03d987d692.mp3?filename=romantic-love-story-126297.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </header>
+
+    <!-- NAVIGATION TABS BAR -->
+    <nav class="nav-tabs-bar glass-panel">
+      <button class="nav-tab active" data-tab="hero-tab">
+        <i class="fa-solid fa-house"></i>
+        <span>الرئيسية</span>
+      </button>
+      <button class="nav-tab" data-tab="letters-tab">
+        <i class="fa-solid fa-envelope-open-text"></i>
+        <span>رسائل ليكي</span>
+      </button>
+      <button class="nav-tab" data-tab="cake-tab">
+        <i class="fa-solid fa-cake-candles"></i>
+        <span>اطفي الشمعة 🎂</span>
+      </button>
+      <button class="nav-tab" data-tab="gifts-tab">
+        <i class="fa-solid fa-gift"></i>
+        <span>المفاجآت والهدايا</span>
+      </button>
+    </nav>
+
+    <!-- MAIN CONTENT VIEW AREA -->
+    <main class="content-area">
+
+      <!-- TAB 1: HERO / CELEBRATION & WELCOME -->
+      <section id="hero-tab" class="tab-page active">
+        <div class="hero-banner glass-card fade-in">
+          <div class="hero-content">
+            <span class="badge-romantic" style="background: rgba(250, 204, 21, 0.15); color: var(--gold); border-color: rgba(250, 204, 21, 0.3);">🎈 مفاجأة عيد ميلادك السعيد! 🎉</span>
+            <h1 class="hero-heading" id="hero-name-heading">كل سنة وأنتِ طيبة يا ضحاضيحو 🎉</h1>
+            <p class="hero-subtext" id="hero-subtext-display">
+              النهاردة يوم مش عادي خالص، النهاردة عيد ميلاد ضحاضيحو الغالية! كل سنة وأنتِ طيبة وربنا يخليكي ليا وتفضلي دايماً وش السعد والفرحة.. عملتلك الصفحة دي مخصوص عشان تفرحك وترسم ضحكة حلوة على وشك، ويا رب سنتك الجديدة دي تكون كلها راحة بال وسعادة وضحك من القلب وتحققي فيها كل اللي في بالك وزيادة! ✨
+            </p>
+
+            <div class="greeting-highlight-card glass-panel" style="padding: 18px 22px; margin-bottom: 20px; border: 1px solid rgba(250, 204, 21, 0.3); text-align: center;">
+              <p style="font-size: 1.1rem; color: #facc15; margin-bottom: 8px; font-weight: 700;">✨ كل سنة وأنتِ طيبة وربنا يخليكي ليا يا ضحاضيحو ✨</p>
+              <p style="font-size: 0.95rem; color: #fff; line-height: 1.7; margin: 0;">يا رب سنة حلوة شبه قلبك الأبيض، مليانة فرحة وأيام رايقة وضحكة ماتفارقش وشك أبداً!</p>
+            </div>
+
+            <div class="hero-cta">
+              <button class="glow-btn" onclick="document.querySelector('[data-tab=cake-tab]').click();">
+                <span>اطفي شمعة عيد ميلادك 🎂</span>
+                <i class="fa-solid fa-cake-candles"></i>
+              </button>
+              <button class="glass-btn" onclick="triggerCelebrationConfetti();">
+                <span>فرقعي بلالين واحتفلي 🎉</span>
+                <i class="fa-solid fa-icons"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- CELEBRATION BADGE (Clean Vector Card - Zero External Photos) -->
+          <div class="hero-card-celebration glass-panel">
+            <div class="hero-icon-burst">
+              <i class="fa-solid fa-cake-candles fa-3x text-gold pulse"></i>
+            </div>
+            <h2 style="color: #fff; margin: 14px 0 6px; font-size: 1.35rem;">سنة حلوة يا ضحاضيحو 🎈</h2>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+              كل سنة وأنتِ طيبة وربنا يخليكي ليا وتفضلي دايماً وش الخير والسعادة ومنورة الدنيا كلها! ✨
+            </p>
+            <div style="margin-top: 16px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+              <span style="background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.3); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">🎉 عيد ميلاد سعيد</span>
+              <span style="background: rgba(244, 114, 182, 0.15); color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.3); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">✨ 2026</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TAB 2: BIRTHDAY LETTERS & SWEET TIMELINE -->
+      <section id="letters-tab" class="tab-page">
+        <div class="section-header">
+          <h2>💌 كلام من القلب ليكي يا ضحاضيحو</h2>
+          <p>دوسي على الختم عشان تفتحي كل رسالة وتعرفي قد إيه أنتِ غالية عندي..</p>
+        </div>
+
+        <div class="letters-grid">
+          <div class="envelope-wrapper">
+            <div class="envelope glass-card" onclick="openLetterModal(1)">
+              <div class="wax-seal">
+                <i class="fa-solid fa-cake-candles"></i>
+              </div>
+              <span class="envelope-tag">الرسالة الأولى</span>
+              <h3>كل سنة وأنتِ طيبة يا ضحاضيحو 🎉</h3>
+              <p class="envelope-preview">كلام من القلب بمناسبة عيد ميلادك.. دوسي تفتحي الجواب 💌</p>
+            </div>
+          </div>
+
+          <div class="envelope-wrapper">
+            <div class="envelope glass-card" onclick="openLetterModal(2)">
+              <div class="wax-seal seal-gold">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="envelope-tag">الرسالة الثانية</span>
+              <h3>ربنا يخليكي ليا يا غالية ✨</h3>
+              <p class="envelope-preview">ليه وجودك في حياتي حاجة غالية ومهمة؟ دوسي واقرئي 💖</p>
+            </div>
+          </div>
+
+          <div class="envelope-wrapper">
+            <div class="envelope glass-card" onclick="openLetterModal(3)">
+              <div class="wax-seal seal-rose">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <span class="envelope-tag">الرسالة الثالثة</span>
+              <h3>دعوة من قلبي لسنتك الجديدة 🎈</h3>
+              <p class="envelope-preview">أمنيات ودعوات حلوة شبه قلبك الأبيض.. افتحي الجواب 🌟</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIMELINE OF MEMORIES -->
+        <div class="timeline-section">
+          <h3 class="timeline-title">📜 ذكرياتنا وأحلى الأيام سوا</h3>
+          <div class="timeline-container">
+            <div class="timeline-item">
+              <div class="timeline-dot"><i class="fa-solid fa-star"></i></div>
+              <div class="timeline-content glass-card">
+                <span class="timeline-date">أول ما عرفتك 🌟</span>
+                <h4>أول يوم معرفة ووش الخير ☕</h4>
+                <p>من أول يوم عرفتك فيه وكان وشك خير، وبان قد إيه أنتِ إنسانة طيبة وبسيطة ودمك خفيف وتدخلي القلب في ثواني!</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"><i class="fa-solid fa-mug-hot"></i></div>
+              <div class="timeline-content glass-card">
+                <span class="timeline-date">أحلى أوقات وضحك ☕</span>
+                <h4>خروجات وحكايات مابتخلصش 🎈</h4>
+                <p>كل مرة بنقعد فيها سوا الوقت بيجري من كتر الضحك والحكايات الرايقة اللي بتهوّن أي تعب وبتفرح القلب بجد.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"><i class="fa-solid fa-cake-candles"></i></div>
+              <div class="timeline-content glass-card">
+                <span class="timeline-date">النهاردة عيد ميلادك 🎉</span>
+                <h4>يومك المميز يا ضحاضيحو 🎂</h4>
+                <p>يوم استثنائي وسنة جديدة من عمرك، يا رب تفضل ضحكتك منورة وشك وتبقي دايماً مبسوطة ومحققة كل اللي بتحلمي بيه!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: VIRTUAL CAKE & CANDLE BLOWING (VECTOR SVG CAKE) -->
+      <section id="cake-tab" class="tab-page">
+        <div class="cake-container glass-card">
+          <div class="section-header">
+            <h2>🎂 تورتة عيد ميلادك والشمعة!</h2>
+            <p>تمني أمنية حلوة في سرك.. وبعدين دوسي على الشمعة اطفيها وافتحي المفاجآت يا ضحاضيحو! 🕯️</p>
+          </div>
+
+          <div class="cake-display-area">
+            <div class="virtual-cake-wrapper" id="candles-container" onclick="blowOutCandles()">
+              <svg viewBox="0 0 280 260" class="svg-cake" xmlns="http://www.w3.org/2000/svg">
+                <!-- Plate -->
+                <ellipse cx="140" cy="235" rx="125" ry="18" fill="#cbd5e1" />
+                <ellipse cx="140" cy="232" rx="115" ry="14" fill="#f8fafc" />
+                
+                <!-- Tier 1 (Bottom Tier) -->
+                <rect x="45" y="165" width="190" height="65" rx="12" fill="#3b0764" />
+                <rect x="45" y="165" width="190" height="16" fill="#f43f5e" />
+                <!-- Frosting drips -->
+                <path d="M 45 181 Q 57 196 69 181 Q 81 196 93 181 Q 105 196 117 181 Q 129 196 141 181 Q 153 196 165 181 Q 177 196 189 181 Q 201 196 213 181 Q 225 196 235 181" fill="#f43f5e" />
+                
+                <!-- Tier 2 (Top Tier) -->
+                <rect x="75" y="115" width="130" height="52" rx="10" fill="#581c87" />
+                <rect x="75" y="115" width="130" height="14" fill="#facc15" />
+                <path d="M 75 129 Q 86 142 97 129 Q 108 142 119 129 Q 130 142 141 129 Q 152 142 163 129 Q 174 142 185 129 Q 196 142 205 129" fill="#facc15" />
+
+                <!-- Cake Inscription Ribbon -->
+                <rect x="80" y="138" width="120" height="22" rx="6" fill="rgba(15, 23, 42, 0.7)" stroke="#facc15" stroke-width="1" />
+                <text x="140" y="153" fill="#facc15" font-size="12" font-family="'Cairo', sans-serif" font-weight="bold" text-anchor="middle">سنة حلوة يا ضحاضيحو 🎈</text>
+
+                <!-- Candle 1 -->
+                <rect x="98" y="70" width="10" height="46" rx="4" fill="#38bdf8" />
+                <line x1="103" y1="70" x2="103" y2="60" stroke="#475569" stroke-width="2.5" />
+
+                <!-- Candle 2 (Center) -->
+                <rect x="135" y="58" width="10" height="58" rx="4" fill="#fb7185" />
+                <line x1="140" y1="58" x2="140" y2="48" stroke="#475569" stroke-width="2.5" />
+
+                <!-- Candle 3 -->
+                <rect x="172" y="70" width="10" height="46" rx="4" fill="#c084fc" />
+                <line x1="177" y1="70" x2="177" y2="60" stroke="#475569" stroke-width="2.5" />
+              </svg>
+
+              <!-- Dynamic Flickering Flame Overlay -->
+              <div class="candle-flame-group">
+                <div class="flame-spark flame-left" id="flame-1"></div>
+                <div class="flame-spark flame-center" id="flame-2"></div>
+                <div class="flame-spark flame-right" id="flame-3"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cake-controls">
+            <button id="blow-candles-btn" class="glow-btn" onclick="blowOutCandles()">
+              <i class="fa-solid fa-wind"></i>
+              <span>اطفي الشموع وفرقعي بلالين ✨</span>
+            </button>
+            <button class="glass-btn" onclick="relightCandles()">
+              <i class="fa-solid fa-fire"></i>
+              <span>ولعي الشمع تاني 🕯️</span>
+            </button>
+          </div>
+
+          <div id="wish-revealed-msg" class="wish-card glass-panel hidden">
+            <div style="font-size: 2rem; margin-bottom: 6px;">🎉🎂✨</div>
+            <h3 style="color: #facc15; font-size: 1.25rem; margin-bottom: 8px;">يا رب كل أمنياتك تتحقق يا ضحاضيحو!</h3>
+            <p style="color: #fff; font-size: 0.95rem; line-height: 1.7; margin: 0;">
+              كل سنة وأنتِ طيبة وربنا يخليكي ليا وما يحرمنيش منك.. وتكون سنة كلها راحة بال وسعادة ونجاح كبير يليق بجمال قلبك وطيبتك!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: SURPRISE GIFT BOXES & SCRATCH CARDS -->
+      <section id="gifts-tab" class="tab-page">
+        <div class="section-header">
+          <h2>🎁 علب المفاجآت وكروت العيد</h2>
+          <p>دوسي على كل كارت هدية وافتحيه.. واكشطي الكارت الفضي عشان تشوفي الرسالة الخاصة! 🎈</p>
+        </div>
+
+        <div class="gifts-grid">
+          <div class="gift-card glass-card" id="gift-card-1" onclick="openGiftBox(1)">
+            <div class="gift-box-icon" id="gift-icon-1">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <h3 id="gift-title-1">كارت العزومة 🍕</h3>
+            <p id="gift-status-1">دوسي تفتحي الكارت 🎁</p>
+          </div>
+
+          <div class="gift-card glass-card" id="gift-card-2" onclick="openGiftBox(2)">
+            <div class="gift-box-icon" id="gift-icon-2">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <h3 id="gift-title-2">كارت السينما 🎬</h3>
+            <p id="gift-status-2">دوسي تفتحي الكارت 🎁</p>
+          </div>
+
+          <div class="gift-card glass-card" id="gift-card-3" onclick="openGiftBox(3)">
+            <div class="gift-box-icon" id="gift-icon-3">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <h3 id="gift-title-3">كارت الأمنية 👑</h3>
+            <p id="gift-status-3">دوسي تفتحي الكارت 🎁</p>
+          </div>
+
+          <div class="gift-card glass-card" id="gift-card-4" onclick="openGiftBox(4)">
+            <div class="gift-box-icon" id="gift-icon-4">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <h3 id="gift-title-4">كارت الروقان ☕</h3>
+            <p id="gift-status-4">دوسي تفتحي الكارت 🎁</p>
+          </div>
+        </div>
+
+        <div class="scratch-section">
+          <h3>🪄 كارت المفاجأة السري (اكشطي بإيدك)</h3>
+          <p>امشي بصباعك أو بالماوس على المربع عشان تقرئي الرسالة المكتوبة يا ضحاضيحو!</p>
+          
+          <div class="scratch-card-wrapper glass-card">
+            <canvas id="scratch-canvas" width="320" height="170"></canvas>
+            <div class="scratch-secret-content">
+              <h4 style="color: #facc15; font-size: 1.05rem; margin-bottom: 6px;">✨ رسالة خاصة ليكي يا ضحاضيحو ✨</h4>
+              <p style="margin: 0; font-size: 0.92rem; line-height: 1.6;">
+                "يا ضحاضيحو.. كل سنة وأنتِ طيبة وربنا يخليكي ليا وتفضلي دايماً أجدع وأغلى أخت وصاحبة في الدنيا، ويجعل سنتك دي كلها أيام رايقة وفرحة وضحك ملوش نهاية وتحققي كل اللي في بالك وزيادة!"
+              </p>
+            </div>
+          </div>
+
+          <button class="glass-btn" style="margin-top: 14px; font-size: 0.88rem; padding: 10px 20px;" onclick="revealScratchCard()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>اكشفي الكارت كله مرة واحدة ✨</span>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer glass-footer">
+      <p>كل سنة وأنتِ طيبة وربنا يخليكي ليا يا ضحاضيحو 🎉 | 2026</p>
+    </footer>
+  </div>
+
+  <!-- MODAL 1: INTERACTIVE LETTER MODAL -->
+  <div id="letter-modal" class="modal-overlay hidden">
+    <div class="modal-card glass-modal">
+      <button class="modal-close-btn" onclick="closeLetterModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="letter-content" id="letter-modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
