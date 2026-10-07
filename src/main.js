@@ -6,39 +6,6 @@ const state = {
   isPlayingAudio: false
 };
 
-// BIRTHDAY LETTERS FOR DHADHIHO
-const birthdayLetters = {
-  1: {
-    title: 'كل سنة وأنتِ طيبة يا ضحاضيحو 🎉',
-    body: `
-      <p style="font-size: 1.25rem; color: #facc15; font-weight: bold; margin-bottom: 12px; text-align: center;">ضحاضيحو الغالية.. ✨</p>
-      كل سنة وأنتِ طيبة وعقبال مليون سنة يا رب في صحة وسعادة وهنا وراحة بال دايماً.<br><br>
-      النهاردة يوم مميز أوي عندي عشان عيد ميلادك أنتِ! عملتلك المفاجأة البسيطة دي مخصوص عشان تفرحك وترسم ضحكة حلوة على وشك زي ما دايماً وجودك بيفرّح وبيعدل المزاج.<br><br>
-      ربنا يخليكي ليا وما يحرمنيش منك أبداً، وتكون سنة جديدة وشها حلو وسعد عليكي وتحققي فيها كل أحلامك يا رب! 🎂✨
-    `
-  },
-  2: {
-    title: 'ربنا يخليكي ليا يا غالية ✨',
-    body: `
-      <p style="font-size: 1.25rem; color: #facc15; font-weight: bold; margin-bottom: 12px; text-align: center;">عارفة ليه أنتِ غالية عندي أوي؟ 💖</p>
-      ✨ <strong style="color: #ffd700;">عشان ضحكتك:</strong> اللي بتعدل أي يوم مقلوب وتقلب المود فرحة وطاقة إيجابية في ثانية.<br><br>
-      ✨ <strong style="color: #ffd700;">عشان قلبك الأبيض:</strong> النضيف اللي مفيش زيه اتنين، وطيبتك النادرة اللي بتظهر في كل كلمة وتصرف.<br><br>
-      ✨ <strong style="color: #ffd700;">عشان القعدة معاكي:</strong> بتهوّن أي تعب وأي زعل، ودايماً وشك سمح ومريح وتدخلي القلب بسرعة.<br><br>
-      بجد ربنا يديمك نعمة في حياتي وتفضلي دايماً أخت وصاحبة غالية عليا أوي ومنورة أيامي! 🌟
-    `
-  },
-  3: {
-    title: 'دعوة من قلبي لسنتك الجديدة 🎈',
-    body: `
-      <p style="font-size: 1.25rem; color: #facc15; font-weight: bold; margin-bottom: 12px; text-align: center;">أمنياتي ودعواتي ليكي يا ضحاضيحو 🌟</p>
-      مع بداية سنتك الجديدة دي، بدعيلك من كل قلبي:<br><br>
-      🌟 <strong style="color: #ffd700;">راحة بال وسعادة:</strong> ربنا يسعد قلبك ومشوفش في عينك أي زعل أو هم أبداً.<br><br>
-      🌟 <strong style="color: #ffd700;">توفيق ونجاح:</strong> كل خطوة تخطيها يبقى فيها خير وتوفيق وتوصلي لكل هدف خططتي له.<br><br>
-      🌟 <strong style="color: #ffd700;">أيام حلوة شبهك:</strong> تحققي كل حلم ونفسك توصلي له وتكوني دايماً فخورة بنفسك ومبسوطة.<br><br>
-      كل سنة وأنتِ منورة الدنيا كلها، وعيد ميلاد سعيد يا أغلى ضحاضيحو في الدنيا! 🎂🎉
-    `
-  }
-};
 
 // GIFTS DATA
 const giftsData = {
@@ -59,7 +26,7 @@ const giftsData = {
   },
   4: {
     icon: 'fa-mug-hot',
-    title: 'قعدة روقان وكافيه ☕',
+    title: 'قاعدة هادية ☕',
     desc: 'أحلى فنجان قهوة مع سينابون وشوكولاتة وقعدة تفصلك عن الدنيا كلها! 🍰🍫'
   }
 };
@@ -204,28 +171,6 @@ function initNavigation() {
   });
 }
 
-/* ----------------------------------------------------
-   5. WAX-SEALED LETTERS MODAL
-   ---------------------------------------------------- */
-window.openLetterModal = function(id) {
-  const letter = birthdayLetters[id];
-  if (!letter) return;
-
-  const modal = document.getElementById('letter-modal');
-  const body = document.getElementById('letter-modal-body');
-
-  body.innerHTML = `
-    <h3>${letter.title}</h3>
-    <div style="margin-top: 14px;">${letter.body}</div>
-  `;
-
-  modal.classList.remove('hidden');
-  confetti({ particleCount: 40, spread: 50, origin: { y: 0.6 } });
-};
-
-window.closeLetterModal = function() {
-  document.getElementById('letter-modal').classList.add('hidden');
-};
 
 /* ----------------------------------------------------
    6. VIRTUAL BIRTHDAY CAKE & CANDLES
